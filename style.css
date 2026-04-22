@@ -134,4 +134,99 @@ body {
 
 .dropdown p:hover {
   color: red;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  background: #320d35;
+  color:#e0e0e0
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #e0e0e0;
+  backdrop-filter: blur(10px);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #8b4814;
+}
+logo{
+    font-size:22px;
+    font-weight:bold;
+    color: white
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #03070ee4;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.nav-links li a:hover {
+  color: #38bdf8;
+}
+section {
+  padding: 50px 40px;
+  color: #F8FAFC;
+}
+h2 {
+  margin-bottom: 20px;
+}
+.category-list {
+  display: flex;
+  gap: 15px;
+}
+.category {
+  background: #1E293B;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.category:hover {
+  background: #38BDF8;
+  color: black;
+}
+.business-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.business-card {
+  background: #334155;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.business-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.business-info {
+  padding: 15px;
+}
+.business-card:hover {
+  transform: translateY(-5px);
+}
+.review-card {
+  background:  #1E293B;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
 }

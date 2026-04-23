@@ -2,101 +2,248 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yelp Style Header</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Listify — Discover the best places around you. A next-generation business discovery platform with smart search, vibe tagging, and swipe discovery.">
+  <title>Listify — Discover the Best Places Around You</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
 </head>
 <body>
 
-<header class="header">
-
-  <!-- LEFT: LOGO -->
-  <div class="logo">Listify</div>
-
-  <!-- CENTER: SEARCH -->
-  <div class="search-bar">
-    <input type="text" placeholder=" ">
-    <input type="text" placeholder="Location">
-    <button>🔍</button>
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">List<span>ify</span></div>
+  <ul class="nav-links">
+    <li><a href="#discover">Explore</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#map">Map</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-ghost" id="writeReviewBtn">Write a Review</button>
+    <button class="btn-primary" id="loginBtn">Sign In</button>
   </div>
+  <button class="mobile-toggle" id="mobileToggle">☰</button>
+</nav>
 
-
-  <div class="nav">
-    <span>Yelp for Business</span>
-    <span>Write a Review</span>
-    <span>Start a Project</span>
-
-    <button class="login">Log In</button>
-    <button class="signup">Sign Up</button>
+<!-- ─── HERO ─── -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="images/hero-cafe.png" class="active" alt="Cafe">
+    <img src="images/hero-restaurant.png" alt="Restaurant">
+    <img src="images/hero-city.png" alt="City">
   </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Trusted by 50,000+ explorers</div>
+    <h1>Discover the Best Places <span class="highlight">Around You</span></h1>
+    <p>Your city is full of hidden gems. Find the perfect spot for any vibe — from cozy cafes to buzzing nightlife.</p>
+    <div class="search-container" id="searchContainer">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchWhat" placeholder="Coffee, gym, sushi..." autocomplete="off">
+        <div class="search-suggestions" id="suggestionsWhat">
+          <div class="suggestion-item" data-value="Best Cafes Near You">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Best Cafes Near You
+          </div>
+          <div class="suggestion-item" data-value="Top Rated Restaurants">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Top Rated Restaurants
+          </div>
+          <div class="suggestion-item" data-value="Gyms with Best Reviews">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Gyms with Best Reviews
+          </div>
+          <div class="suggestion-item" data-value="Cozy Bookstores">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Cozy Bookstores
+          </div>
+          <div class="suggestion-item" data-value="Date Night Spots">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Date Night Spots
+          </div>
+        </div>
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" id="searchWhere" placeholder="City or neighborhood" autocomplete="off">
+      </div>
+      <button class="search-btn" id="searchBtn">Explore Now</button>
+    </div>
+    <div class="trending-tags">
+      <span class="trending-tag">🔥 Trending: Rooftop Bars</span>
+      <span class="trending-tag">☕ Specialty Coffee</span>
+      <span class="trending-tag">🍕 Late Night Eats</span>
+      <span class="trending-tag">💪 24/7 Gyms</span>
+      <span class="trending-tag">📖 Quiet Workspaces</span>
+    </div>
+  </div>
+</section>
 
-</header>
+<!-- ─── VIBE FILTERS ─── -->
+<div class="vibe-section fade-up" id="categories">
+  <div class="vibe-filters">
+    <button class="vibe-chip active" data-vibe="all">All Places</button>
+    <button class="vibe-chip" data-vibe="chill">☕ Chill</button>
+    <button class="vibe-chip" data-vibe="work">💻 Work-Friendly</button>
+    <button class="vibe-chip" data-vibe="date">❤️ Date Spot</button>
+    <button class="vibe-chip" data-vibe="budget">💰 Budget Friendly</button>
+    <button class="vibe-chip" data-vibe="luxury">✨ Luxury</button>
+    <button class="vibe-chip" data-vibe="nightlife">🌙 Nightlife</button>
+    <button class="vibe-chip" data-vibe="family">👨‍👩‍👧 Family</button>
+    <button class="vibe-chip" data-vibe="fitness">💪 Fitness</button>
+  </div>
+</div>
 
+<!-- ─── TRENDING NOW ─── -->
+<section class="section" id="discover">
+  <div class="section-header fade-up">
+    <div>
+      <h2 class="section-title">Trending Now 🔥</h2>
+      <p class="section-subtitle">The hottest spots people are talking about</p>
+    </div>
+    <a href="#" class="view-all">View all →</a>
+  </div>
+  <div class="feed-scroll fade-up" id="trendingFeed"></div>
+</section>
 
+<!-- ─── HIDDEN GEMS ─── -->
+<section class="section" style="padding-top:0">
+  <div class="section-header fade-up">
+    <div>
+      <h2 class="section-title">Hidden Gems 💎</h2>
+      <p class="section-subtitle">Under-the-radar spots loved by locals</p>
+    </div>
+    <a href="#" class="view-all">View all →</a>
+  </div>
+  <div class="feed-scroll fade-up" id="gemsFeed"></div>
+</section>
 
+<!-- ─── TOP RATED ─── -->
+<section class="section" style="padding-top:0">
+  <div class="section-header fade-up">
+    <div>
+      <h2 class="section-title">Top Rated Near You ⭐</h2>
+      <p class="section-subtitle">Consistently excellent — backed by real reviews</p>
+    </div>
+    <a href="#" class="view-all">View all →</a>
+  </div>
+  <div class="feed-scroll fade-up" id="topRatedFeed"></div>
+</section>
+
+<!-- ─── TODAY'S PICKS ─── -->
+<section class="section" style="padding-top:0">
+  <div class="section-header fade-up">
+    <div>
+      <h2 class="section-title">Today's Picks For You 👋</h2>
+      <p class="section-subtitle">Curated based on your taste and activity</p>
+    </div>
+  </div>
+  <div class="picks-grid fade-up" id="picksList"></div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="section-header fade-up">
+    <div>
+      <h2 class="section-title">Most Helpful Reviews 💬</h2>
+      <p class="section-subtitle">Real opinions from real people</p>
+    </div>
+  </div>
+  <div class="reviews-grid fade-up" id="reviewsList"></div>
+</section>
+
+<!-- ─── GAMIFICATION ─── -->
+<section class="section" style="padding-top:0">
+  <div class="gamification fade-up">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Top Explorers 🏆</h2>
+        <p class="section-subtitle">This week's most active community members</p>
+      </div>
+    </div>
+    <div class="leaderboard" id="leaderboard"></div>
+    <h3 style="font-size:18px;font-weight:600;margin-bottom:16px">Earn Badges</h3>
+    <div class="badges-row" id="badgesRow"></div>
+  </div>
+</section>
+
+<!-- ─── MAP ─── -->
+<section class="section" id="map" style="padding-top:0">
+  <div class="section-header fade-up">
+    <div>
+      <h2 class="section-title">Explore the Map 🗺️</h2>
+      <p class="section-subtitle">See what's around you at a glance</p>
+    </div>
+    <div class="map-toggle">
+      <button class="map-toggle-btn active" data-view="map">Map</button>
+      <button class="map-toggle-btn" data-view="list">List</button>
+    </div>
+  </div>
+  <div class="map-container fade-up" id="mapContainer">
+    <div class="map-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <p style="font-size:14px">Interactive map loading...</p>
+    </div>
+    <div class="map-pins" id="mapPins"></div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:4px">List<span style="color:var(--accent)">ify</span></div>
+      <p>Discover amazing places, share your experiences, and connect with a community of explorers. Your city is full of stories — start exploring.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Discover</h4>
+      <a href="#">Trending</a>
+      <a href="#">Hidden Gems</a>
+      <a href="#">Top Rated</a>
+      <a href="#">New Places</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Listify. All rights reserved.</p>
+    <p>Made with ❤️ for explorers everywhere</p>
+  </div>
+</footer>
+
+<!-- ─── SWIPE OVERLAY ─── -->
+<div class="swipe-overlay" id="swipeOverlay">
+  <button class="swipe-close" id="swipeClose">✕</button>
+  <h2 style="font-size:24px;font-weight:700;margin-bottom:8px">Swipe Discovery</h2>
+  <p style="color:var(--text-muted);font-size:14px;margin-bottom:24px">Swipe right to save, left to skip</p>
+  <div class="swipe-card-stack" id="swipeStack"></div>
+  <div class="swipe-actions">
+    <button class="swipe-btn pass" id="swipePass" title="Skip">✕</button>
+    <button class="swipe-btn save" id="swipeSave" title="Bookmark">🔖</button>
+    <button class="swipe-btn like" id="swipeLike" title="Love it">♥</button>
+  </div>
+</div>
+
+<!-- ─── FAB ─── -->
+<button class="fab-swipe" id="fabSwipe" title="Swipe Discovery Mode">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+</button>
+
+<script src="app.js"></script>
 </body>
-</html>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Listify</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-   
-    <section class="categories">
-      <h2>Explore Categories</h2>
-      <div class="category-list">
-        <div class="category">Restaurants</div>
-        <div class="category">Beauty</div>
-        <div class="category">Gym</div>
-        <div class="category">Services</div>
-      </div>
-    </section>
-
-    <section class="business-section">
-      <h2>Top Rated Businesses</h2>
-
-      <div class="business-container">
-        <div class="business-card">
-          <img src="https://via.placeholder.com/300" />
-          <div class="business-info">
-            <h3>Cafe Mocha</h3>
-            <p>⭐ 4.5 • Cafe • Lucknow</p>
-          </div>
-        </div>
-
-        <div class="business-card">
-          <img src="https://via.placeholder.com/300" />
-          <div class="business-info">
-            <h3>Urban Gym</h3>
-            <p>⭐ 4.7 • Fitness • Lucknow</p>
-          </div>
-        </div>
-
-        <div class="business-card">
-          <img src="https://via.placeholder.com/300" />
-          <div class="business-info">
-            <h3>Glow Salon</h3>
-            <p>⭐ 4.3 • Beauty • Lucknow</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reviews">
-      <h2>Latest Reviews</h2>
-
-      <div class="review-card">
-        <p>"Amazing service, highly recommended!"</p>
-        <span>- Ekansh</span>
-      </div>
-
-      <div class="review-card">
-        <p>"Great ambiance and food quality."</p>
-        <span>- Rahul</span>
-      </div>
-    </section>
-    <script src="js/navbar.js"></script>
-  </body>
 </html>
